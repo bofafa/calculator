@@ -33,22 +33,21 @@ def calc(a,b,op):
   return loc_result
 
 result = 0
-exp ='1 + 1'  #string, must have space
+exp ='1.7 + 2.4 + 1 + 1'  #string, must have space
 exp = exp.split() #from string to list
 print(exp)
 
+if (len(exp) % 2 != 1):
+   print("wrong expression")
+else:
+  while (len(exp) >= 3 and len(exp)%2):
+    a = exp[0]
+    b = exp[2]
+    op= exp[1]
+    result = calc(a,b,op)
+    del exp[:2]
+    exp[0] = result
+    print(exp)
 
-while (len(exp) >= 3 and len(exp)%2):
-  a = exp[0]
-  b = exp[2]
-  op= exp[1]
-  result = calc(a,b,op)
-  del exp[:2]
-  print(exp)
-  exp[0] = result
 print("expression result is : " + str (result))
 
-# except ValueError:
-#   print("Data error")
-# except ZeroDivisionError:
-#   print("b can not be zero")
